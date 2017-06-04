@@ -11,7 +11,7 @@ const baseURL = "https://fcc-img-src.herokuapp.com/"
 const client = new GoogleImages('012018654353341728844:s_vdxhocsh0', 'AIzaSyCI7fbd92raffAsnCY8BJu7chIm_64N4RQ');
 
 app.get('/', (req, res) => {
-    res.send(`Example to use: ${baseURL}/query/freecodecamp <br><hr>Check recents here: ${baseURL}/recent`)
+    res.send(`Example to use: ${baseURL}query/freecodecamp <br><hr>Check recents here: ${baseURL}recent?offset=1`)
 })
 
 app.get('/query/:search', (req, res) => {
