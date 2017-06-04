@@ -46,8 +46,14 @@ app.get('/query/:search', (req, res) => {
 })
 
 app.get('/recent', (req, res) => {
-    QUERIES.find()
+    var offset = req.query.offset || 0;
+
+    QUERIES.find().limit(10).skip(Number(offset) * 10)
         .then((qs) => {
+            if (!qs.length)
+                res.status(404).send({
+                    error: "No data to fetch"
+                })
             res.send(qs)
         })
         .catch((e) => res.status(400).send(e))
